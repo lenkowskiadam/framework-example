@@ -23,7 +23,11 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//ul[@class='sub-menu']//a[contains(@href, 'automatisiertes-testen')]")
     WebElement automatisiertesTestenButton;
 
+    @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class,'menu-item-2527')]")
+    WebElement servicesMenu;
 
+    @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class, 'menu-item-14241')]//a[contains(@href,'test-automation')]")
+    WebElement testAutomationButton;
 
     public void changeLanguageToGerman() {
         Actions action = new Actions(driver);
@@ -45,7 +49,8 @@ public class HomePage extends AbstractPage {
         action.moveToElement(el).moveToElement(automatisiertesTestenButton).click().build().perform();
 
         String expectedUrl = "https://qualityminds.com/de/services/qa-kernkompetenzen/automatisiertes-testen/";
-        Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
+        String urlAfterClickOnTestenButton = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl, urlAfterClickOnTestenButton);
     }
 
     public void verifyEnglishVersion() {
@@ -54,6 +59,36 @@ public class HomePage extends AbstractPage {
 
         Assert.assertEquals(flag, nationality);
 
+    }
+
+    public void goToTestAutomationPage(){
+        Actions action = new Actions(driver);
+        WebElement el = servicesMenu;
+        action.moveToElement(el).moveToElement(testAutomationButton).click().build().perform();
+
+        String expectedUrl = "https://qualityminds.com/services/core-qa-services/test-automation/";
+        Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
+    }
+
+    public void clickOnGermanFlagAndCheckPage(){
+        Actions action = new Actions(driver);
+        WebElement el = changeLanguageMenu;
+        action.moveToElement(el).moveToElement(germanFlag).click().build().perform();
+
+        String expectedUrl = "https://qualityminds.com/de/services/qa-kernkompetenzen/automatisiertes-testen/";
+        String urlAfterClickOnFlag = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl, urlAfterClickOnFlag);
+    }
+
+    public void checkIfPagesAreTheSame(){
+        String currentUrl = driver.getCurrentUrl();
+
+        Actions action = new Actions(driver);
+        WebElement el = portfolioMenu;
+        action.moveToElement(el).moveToElement(automatisiertesTestenButton).click().build().perform();
+        String newUrl = driver.getCurrentUrl();
+
+        Assert.assertEquals(currentUrl, newUrl);
     }
 
     public HomePage(WebDriver driver) {

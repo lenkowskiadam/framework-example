@@ -1,14 +1,17 @@
+package tests;
+
+import configuration.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
 public class AbstractTest {
-    final static Logger logger = Logger.getLogger(AbstractTest.class);
+//    final static Logger logger = new Logger (AbstractTest.class)
 
     protected WebDriver driver;
 

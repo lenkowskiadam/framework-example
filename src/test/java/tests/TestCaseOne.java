@@ -1,3 +1,5 @@
+package tests;
+
 import org.testng.annotations.Test;
 import pages.AutomatisiertesTestenPage;
 import pages.HomePage;
@@ -17,5 +19,8 @@ public class TestCaseOne extends AbstractTest {
 
         homePage.checkPageIsDisplayed();
         homePage.verifyEnglishVersion();
+        homePage.goToTestAutomationPage();
+        homePage.clickOnGermanFlagAndCheckPage();
+        homePage.checkIfPagesAreTheSame();
     }
 }
