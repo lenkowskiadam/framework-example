@@ -13,4 +13,4 @@
 * To run all tests right click mouse on 'tests' and then 'Run Tests in tests'
 
 ## Change browser
-* By default tests are run on Chrome browser, to change for Firefox do to 'AbstractTest' and change from 'Chrome' to 'FireFox' in 'public static String browserName = "Chrome"'
+* By default tests are run on Chrome browser, to change for Firefox go to 'AbstractTest' and change from 'Chrome' to 'Firefox' in 'String browserName'

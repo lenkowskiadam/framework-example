@@ -1,4 +1,4 @@
-Feature: Test scenario one
+Feature: Automate all test cases from exercise
 
   Scenario: Test scenario one
     Given user is on QualityMinds page

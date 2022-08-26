@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AbstractTest {
 
-    public static String browserName = "Chrome";
+    public static String browserName = "Firefox";
     protected WebDriver driver;
 
     @BeforeMethod
@@ -21,7 +21,7 @@ public class AbstractTest {
         if (browserName.contains("Chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-        } else if (browserName.contains("FireFox")) {
+        } else if (browserName.contains("Firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
