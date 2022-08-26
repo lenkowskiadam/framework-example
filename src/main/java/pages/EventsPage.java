@@ -7,10 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class EventsPage extends AbstractPage{
+public class EventsPage extends AbstractPage {
 
     private final int MAX_WAIT = 30;
-
 
     @FindBy(xpath = "//input[@id='tribe-events-events-bar-keyword']")
     WebElement searchForEventsField;
@@ -24,14 +23,14 @@ public class EventsPage extends AbstractPage{
     @FindBy(xpath = "//span[contains(@class,'tribe-common-a11y-hidden')]")
     WebElement nowOnwardsOption;
 
-    public void searchEvents(String eventsName){
+    public void searchEvents(String eventsName) {
         WebDriverWait wait = new WebDriverWait(driver, MAX_WAIT);
         wait.until(ExpectedConditions.elementToBeClickable(searchForEventsField));
         searchForEventsField.sendKeys(eventsName);
         findEventsButton.click();
     }
 
-    public void checkSearchingResult(){
+    public void checkSearchingResult() {
         WebDriverWait wait = new WebDriverWait(driver, MAX_WAIT);
         wait.until(ExpectedConditions.visibilityOf(searchingResult));
 

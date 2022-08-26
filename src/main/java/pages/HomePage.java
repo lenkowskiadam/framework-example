@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-
 public class HomePage extends AbstractPage {
 
     private final int MAX_WAIT = 30;
@@ -45,11 +44,10 @@ public class HomePage extends AbstractPage {
     WebElement eventsButton;
 
     @SneakyThrows
-    public void changeLanguageToGerman(){
+    public void changeLanguageToGerman() {
         Actions action = new Actions(driver);
         WebElement el = changeLanguageMenu;
         action.moveToElement(el).moveToElement(germanFlag).click().build().perform();
-
         Thread.sleep(3000);
 
         String expectedUrl = "https://qualityminds.com/de/";
@@ -67,7 +65,6 @@ public class HomePage extends AbstractPage {
         Actions action = new Actions(driver);
         WebElement el = portfolioMenu;
         action.moveToElement(el).moveToElement(automatisiertesTestenButton).click().build().perform();
-
         Thread.sleep(1000);
 
         String expectedUrl = "https://qualityminds.com/de/services/qa-kernkompetenzen/automatisiertes-testen/";
@@ -84,11 +81,10 @@ public class HomePage extends AbstractPage {
     }
 
     @SneakyThrows
-    public void goToTestAutomationPage(){
+    public void goToTestAutomationPage() {
         Actions action = new Actions(driver);
         WebElement el = servicesMenu;
         action.moveToElement(el).moveToElement(testAutomationButton).click().build().perform();
-
         Thread.sleep(1000);
 
         String expectedUrl = "https://qualityminds.com/services/core-qa-services/test-automation/";
@@ -96,11 +92,10 @@ public class HomePage extends AbstractPage {
     }
 
     @SneakyThrows
-    public void clickOnGermanFlagAndCheckPage(){
+    public void clickOnGermanFlagAndCheckPage() {
         Actions action = new Actions(driver);
         WebElement el = changeLanguageMenu;
         action.moveToElement(el).moveToElement(germanFlag).click().build().perform();
-
         Thread.sleep(1000);
 
         String expectedUrl = "https://qualityminds.com/de/services/qa-kernkompetenzen/automatisiertes-testen/";
@@ -108,9 +103,8 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(expectedUrl, urlAfterClickOnFlag);
     }
 
-    public void checkIfPagesAreTheSame(){
+    public void checkIfPagesAreTheSame() {
         String currentUrl = driver.getCurrentUrl();
-
         Actions action = new Actions(driver);
         WebElement el = portfolioMenu;
         action.moveToElement(el).moveToElement(automatisiertesTestenButton).click().build().perform();
@@ -119,7 +113,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(currentUrl, newUrl);
     }
 
-    public void checkAboutUsSubmenuIsDisplayed(){
+    public void checkAboutUsSubmenuIsDisplayed() {
         Actions action = new Actions(driver);
         WebElement el = aboutUsMenu;
         action.moveToElement(el).build().perform();
@@ -130,7 +124,7 @@ public class HomePage extends AbstractPage {
     }
 
     @SneakyThrows
-    public void goToEventSubmenu(){
+    public void goToEventSubmenu() {
         Actions action = new Actions(driver);
         WebElement el = aboutUsMenu;
         action.moveToElement(el).moveToElement(eventsButton).click().build().perform();
@@ -138,11 +132,9 @@ public class HomePage extends AbstractPage {
         Thread.sleep(1000);
         String expectedUrl = "https://qualityminds.com/events/";
         Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
-
-
     }
 
     public HomePage(WebDriver driver) {
-            super(driver);
-        }
+        super(driver);
     }
+}
