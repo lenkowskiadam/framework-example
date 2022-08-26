@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import java.util.concurrent.TimeUnit;
 
 public class HomePage extends AbstractPage {
 
@@ -36,8 +35,14 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class, 'menu-item-14241')]//a[contains(@href,'test-automation')]")
     WebElement testAutomationButton;
 
-    @FindBy(xpath = "//img[@alt='QualityMinds']")
-    WebElement qualityMindsLogo;
+    @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class,' menu-item-3080')]//ul[@class='sub-menu']")
+    WebElement aboutUsSubmenu;
+
+    @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class,' menu-item-3080')]")
+    WebElement aboutUsMenu;
+
+    @FindBy(xpath = "//ul[@class='sub-menu']//a[contains(@href, 'events')]")
+    WebElement eventsButton;
 
     @SneakyThrows
     public void changeLanguageToGerman(){
@@ -45,10 +50,11 @@ public class HomePage extends AbstractPage {
         WebElement el = changeLanguageMenu;
         action.moveToElement(el).moveToElement(germanFlag).click().build().perform();
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
         String expectedUrl = "https://qualityminds.com/de/";
-        Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrl, actualUrl);
     }
 
     public void checkPageIsDisplayed() {
@@ -111,6 +117,29 @@ public class HomePage extends AbstractPage {
         String newUrl = driver.getCurrentUrl();
 
         Assert.assertEquals(currentUrl, newUrl);
+    }
+
+    public void checkAboutUsSubmenuIsDisplayed(){
+        Actions action = new Actions(driver);
+        WebElement el = aboutUsMenu;
+        action.moveToElement(el).build().perform();
+
+        WebDriverWait wait = new WebDriverWait(driver, MAX_WAIT);
+        wait.until(ExpectedConditions.visibilityOf(aboutUsSubmenu));
+        Assert.assertEquals(true, aboutUsSubmenu.isDisplayed());
+    }
+
+    @SneakyThrows
+    public void goToEventSubmenu(){
+        Actions action = new Actions(driver);
+        WebElement el = aboutUsMenu;
+        action.moveToElement(el).moveToElement(eventsButton).click().build().perform();
+
+        Thread.sleep(1000);
+        String expectedUrl = "https://qualityminds.com/events/";
+        Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
+
+
     }
 
     public HomePage(WebDriver driver) {
