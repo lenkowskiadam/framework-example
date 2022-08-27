@@ -5,12 +5,12 @@
 * In 'src/user_stories' you will find user stories wrote in Gherkin language and Cucumber tool. They are ready to implement to this framework.  
 
 ## Setup
-* Clone the repo
-* Install dependencies 'mvn install'
+* Clone the repo.
+* Install dependencies 'mvn install'.
 
 ## Running tests
 * To run test click on play button on the left side.
-* To run all tests right click mouse on 'tests' and then 'Run Tests in tests'
+* To run all tests right click mouse on 'tests' and then 'Run Tests in tests'.
 
 ## Change browser
-* By default tests are run on Chrome browser, to change for Firefox go to 'AbstractTest' and change from 'Chrome' to 'Firefox' in 'String browserName'
+* By default tests are run on Chrome browser, to change for Firefox go to 'AbstractTest' and change from 'Chrome' to 'Firefox' in 'String browserName'.
