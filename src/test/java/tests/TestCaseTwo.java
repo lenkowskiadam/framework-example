@@ -19,5 +19,12 @@ public class TestCaseTwo extends AbstractTest{
         EventsPage eventsPage = new EventsPage(driver);
         eventsPage.searchEvents(eventName);
         eventsPage.checkSearchingResult();
+        eventsPage.acceptCookieBanner();
+        eventsPage.checkCalendar();
+        eventsPage.goToDecemberAndSelectDay();
+        eventsPage.checkNowOnwardsOptionButton();
+        eventsPage.checkEventsTitle();
+        eventsPage.checkEventDate();
+
     }
 }
