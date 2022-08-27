@@ -134,6 +134,10 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
     }
 
+    public void goToJobOfferPage() {
+        driver.navigate().to("https://qualityminds.com/de/karriere/stellenangebote/");
+    }
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
