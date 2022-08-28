@@ -44,6 +44,21 @@ public class JobOfferPage extends AbstractPage {
     @FindBy(xpath = "//form[@id='awsm-application-form']//div[contains(@class,'email-group')]//input")
     WebElement emailField;
 
+    @FindBy(xpath = "//div[@class='awsm-job-entry-content entry-content']//p[@class='has-medium-font-size'][1]")
+    WebElement jobDescriptionFirstParagraph;
+
+    @FindBy(xpath = "//form[@id='awsm-application-form']//div[contains(@class,'textarea-group')]//textarea")
+    WebElement textField;
+
+    @FindBy(xpath = "//input[@id='awsm-application-file']")
+    WebElement attachFileButton;
+
+    @FindBy(xpath = " //div[@class='custom-input']")
+    WebElement attachFileAfterUpload;
+
+    @FindBy(xpath = "//input[@id='awsm_form_privacy_policy']")
+    WebElement checkboxForDatenschutzerklärung;
+
     @Step("Check page title")
     public void checkPageTitle() {
         String expectedTitle = "Stellenangebote";
@@ -55,13 +70,11 @@ public class JobOfferPage extends AbstractPage {
         List<WebElement> numberOfElements = driver.findElements(By.xpath("//a[@class='awsm-job-item']"));
         int number = numberOfElements.size();
         Assert.assertTrue(number > 1);
-
     }
 
     @Step("Click on the first job offer")
     public void clickOnFirstJobOffer() {
         firstJobOffer.click();
-
     }
 
     @Step("Accept cookie banner")
@@ -93,7 +106,7 @@ public class JobOfferPage extends AbstractPage {
 
     @Step("Insert emoji and check message")
     public void insertEmojiAndValidateMessages() {
-        String emoji="😊";
+        String emoji="\uD83D\uDE0A";
         StringSelection stringSelection = new StringSelection(emoji);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
@@ -102,6 +115,31 @@ public class JobOfferPage extends AbstractPage {
         String message = "Bitte gebe eine gültige E-Mail-Adresse ein.";
 
         Assert.assertEquals(message, messageBelowEmailField.getText());
+    }
+
+    @Step("Take first 10 words from job description and copy to bewerbungsschreiben input ")
+    public void takeWordsFromDescriptionAndCopy() {
+        String text = jobDescriptionFirstParagraph.getText();
+        String[] parts = text.split("Schwerpunkt");
+        String firstPart = parts[0];
+        String rest = parts[1];
+        textField.sendKeys(firstPart);
+
+        String message = "Dies ist ein Pflichtfeld.";
+        Assert.assertNotEquals(message, messageBelowNameField.getText());
+    }
+
+    @Step("Attach file with DATEIEN HOCHLADEN button")
+    public void attachFile() {
+        attachFileButton.sendKeys("/Users/adamlenkowski/Documents/Java_Selnium_Projects/quality_minds/src/main/resources/sample.pdf");
+        String pdfName = "sample.pdf";
+        Assert.assertEquals(pdfName, attachFileAfterUpload.getText());
+    }
+
+    @Step("Click on checkbox and check if is selected")
+    public void clickAndCheckOnCheckbox() {
+        checkboxForDatenschutzerklärung.click();
+        Assert.assertTrue(checkboxForDatenschutzerklärung.isSelected());
     }
 
     public JobOfferPage(WebDriver driver) {

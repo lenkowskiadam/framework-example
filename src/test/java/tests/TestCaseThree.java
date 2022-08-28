@@ -12,7 +12,6 @@ public class TestCaseThree extends AbstractTest {
     @Description("Test case three for interview")
     @Test
     public void testThree() {
-
         HomePage homePage = new HomePage(driver);
         homePage.goToJobOfferPage();
 
@@ -24,6 +23,8 @@ public class TestCaseThree extends AbstractTest {
         jobOfferPage.checkValidationMessage();
         jobOfferPage.typeNameAndValidateMessages();
         jobOfferPage.insertEmojiAndValidateMessages();
-
+        jobOfferPage.takeWordsFromDescriptionAndCopy();
+        jobOfferPage.attachFile();
+        jobOfferPage.clickAndCheckOnCheckbox();
     }
 }
