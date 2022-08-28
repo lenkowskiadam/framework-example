@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class HomePage extends AbstractPage {
 
@@ -43,6 +44,7 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//ul[@class='sub-menu']//a[contains(@href, 'events')]")
     WebElement eventsButton;
 
+    @Step("Change language to German")
     @SneakyThrows
     public void changeLanguageToGerman() {
         Actions action = new Actions(driver);
@@ -55,11 +57,13 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(expectedUrl, actualUrl);
     }
 
+    @Step("Check if page is displayed")
     public void checkPageIsDisplayed() {
         String pageTitle = "QualityMinds | Homepage";
         Assert.assertEquals(pageTitle, driver.getTitle());
     }
 
+    @Step("Go to the Automatisiertes Testen page")
     @SneakyThrows
     public void goToAutomatisiertesTestenPage() {
         Actions action = new Actions(driver);
@@ -72,6 +76,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(expectedUrl, urlAfterClickOnTestenButton);
     }
 
+    @Step("Verify English version")
     public void verifyEnglishVersion() {
         String nationality = "EN";
         String flag = britishFlag.getAttribute("alt");
@@ -79,6 +84,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(flag, nationality);
     }
 
+    @Step("Go to Test Automation page")
     @SneakyThrows
     public void goToTestAutomationPage() {
         Actions action = new Actions(driver);
@@ -90,6 +96,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
     }
 
+    @Step("Click on German flag and check page")
     @SneakyThrows
     public void clickOnGermanFlagAndCheckPage() {
         Actions action = new Actions(driver);
@@ -102,6 +109,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(expectedUrl, urlAfterClickOnFlag);
     }
 
+    @Step("Check if pages are the same")
     public void checkIfPagesAreTheSame() {
         String currentUrl = driver.getCurrentUrl();
         Actions action = new Actions(driver);
@@ -112,6 +120,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(currentUrl, newUrl);
     }
 
+    @Step("Check if About Us menu is displayed")
     public void checkAboutUsSubmenuIsDisplayed() {
         Actions action = new Actions(driver);
         WebElement el = aboutUsMenu;
@@ -122,6 +131,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(true, aboutUsSubmenu.isDisplayed());
     }
 
+    @Step("Go to Events submenu")
     @SneakyThrows
     public void goToEventSubmenu() {
         Actions action = new Actions(driver);
@@ -133,6 +143,7 @@ public class HomePage extends AbstractPage {
         Assert.assertEquals(expectedUrl, driver.getCurrentUrl());
     }
 
+    @Step("Go to Job Offer page")
     public void goToJobOfferPage() {
         driver.navigate().to("https://qualityminds.com/de/karriere/stellenangebote/");
     }
