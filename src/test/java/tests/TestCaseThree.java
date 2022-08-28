@@ -18,5 +18,9 @@ public class TestCaseThree extends AbstractTest {
 
         JobOfferPage jobOfferPage = new JobOfferPage(driver);
         jobOfferPage.checkPageTitle();
+        jobOfferPage.acceptCookieBanner();
+        jobOfferPage.checkJobsOffers();
+        jobOfferPage.clickOnFirstJobOffer();
+
     }
 }
