@@ -21,6 +21,9 @@ public class TestCaseThree extends AbstractTest {
         jobOfferPage.acceptCookieBanner();
         jobOfferPage.checkJobsOffers();
         jobOfferPage.clickOnFirstJobOffer();
+        jobOfferPage.checkValidationMessage();
+        jobOfferPage.typeNameAndValidateMessages();
+        jobOfferPage.insertEmojiAndValidateMessages();
 
     }
 }
