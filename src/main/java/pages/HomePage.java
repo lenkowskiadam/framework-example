@@ -77,7 +77,6 @@ public class HomePage extends AbstractPage {
         String flag = britishFlag.getAttribute("alt");
 
         Assert.assertEquals(flag, nationality);
-
     }
 
     @SneakyThrows

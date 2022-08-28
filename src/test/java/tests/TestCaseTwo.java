@@ -25,6 +25,5 @@ public class TestCaseTwo extends AbstractTest{
         eventsPage.checkNowOnwardsOptionButton();
         eventsPage.checkEventsTitle();
         eventsPage.checkEventDate();
-
     }
 }
