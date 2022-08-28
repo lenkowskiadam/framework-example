@@ -6,7 +6,7 @@ import pages.HomePage;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Title;
 
-public class TestCaseTwo extends AbstractTest{
+public class TestCaseTwo extends AbstractTest {
 
     private final String eventName = "2021";
 

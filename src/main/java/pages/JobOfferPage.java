@@ -106,14 +106,22 @@ public class JobOfferPage extends AbstractPage {
 
     @Step("Insert emoji and check message")
     public void insertEmojiAndValidateMessages() {
-        String emoji="\uD83D\uDE0A";
-        StringSelection stringSelection = new StringSelection(emoji);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-        emailField.sendKeys(Keys.SHIFT, Keys.INSERT);
-        messageBelowEmailField.click();
+        try {
+            emailField.sendKeys("\uD83D\uDE0A");
+        } catch (Exception ex) {
+            System.out.println("Failed for Chrome trying other way");
+        }
+        try {
+            String emoji = "\uD83D\uDE0A";
+            StringSelection stringSelection = new StringSelection(emoji);
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            clipboard.setContents(stringSelection, null);
+            emailField.sendKeys(Keys.SHIFT, Keys.INSERT);
+            messageBelowEmailField.click();
+        } catch (Exception exc) {
+            System.out.println("Failed");
+        }
         String message = "Bitte gebe eine gültige E-Mail-Adresse ein.";
-
         Assert.assertEquals(message, messageBelowEmailField.getText());
     }
 
@@ -138,7 +146,9 @@ public class JobOfferPage extends AbstractPage {
 
     @Step("Click on checkbox and check if is selected")
     public void clickAndCheckOnCheckbox() {
-        checkboxForDatenschutzerklärung.click();
+        WebElement element = checkboxForDatenschutzerklärung;
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", element);
         Assert.assertTrue(checkboxForDatenschutzerklärung.isSelected());
     }
 
