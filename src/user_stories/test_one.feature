@@ -17,4 +17,3 @@ Feature: Automate first test cases from exercise
     When user hover language menu and click German flag
     Then Automatisieres Testen page is displayed
     And pages from after click on Automatisiertes Testen and German flag are the same
-

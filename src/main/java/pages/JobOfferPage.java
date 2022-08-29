@@ -1,8 +1,6 @@
 package pages;
 
-import lombok.SneakyThrows;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
