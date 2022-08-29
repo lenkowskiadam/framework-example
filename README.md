@@ -16,5 +16,5 @@
 * By default tests are run on Chrome browser, to change for Firefox go to 'tests.AbstractTest' and change from 'Chrome' to 'Firefox' in 'String browserName'.
 
 ## Reports
-* Reports are provided by Allure
-* To generate and view report after test write in terminal 'allure serve allure-results' and perform 
+* Reports are provided by Allure.
+* To generate and view report after test write in terminal 'allure serve allure-results' and perform.
