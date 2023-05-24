@@ -1,4 +1,4 @@
-## QualityMinds
+
 * Master branch contains three test cases for interview.
 * Framework is built using Page Object Pattern so in 'src/main/java' folder you will find two packages one with 'configuration' and 'pages' with all pages that was used to write tests.
 * In 'src/test/java/tests' you will find three test cases.
