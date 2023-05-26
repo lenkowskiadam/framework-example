@@ -29,7 +29,7 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//ul[@class='sub-menu']//a[contains(@href, 'automatisiertes-testen')]")
     WebElement automatisiertesTestenButton;
 
-    @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class,'menu-item-2527')]")
+    @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class,'menu-item-41593')]")
     WebElement servicesMenu;
 
     @FindBy(xpath = "//ul[@id='top-menu']//li[contains(@class, 'menu-item-14241')]//a[contains(@href,'test-automation')]")
@@ -71,7 +71,7 @@ public class HomePage extends AbstractPage {
         action.moveToElement(el).moveToElement(automatisiertesTestenButton).click().build().perform();
         Thread.sleep(1000);
 
-        String expectedUrl = "https://qualityminds.com/de/services/qa-kernkompetenzen/automatisiertes-testen/";
+        String expectedUrl = "https://qualityminds.com/de/portfolio/qa-kernkompetenzen/automatisiertes-testen/";
         String urlAfterClickOnTestenButton = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl, urlAfterClickOnTestenButton);
     }
@@ -104,7 +104,7 @@ public class HomePage extends AbstractPage {
         action.moveToElement(el).moveToElement(germanFlag).click().build().perform();
         Thread.sleep(1000);
 
-        String expectedUrl = "https://qualityminds.com/de/services/qa-kernkompetenzen/automatisiertes-testen/";
+        String expectedUrl = "https://qualityminds.com/de/portfolio/qa-kernkompetenzen/automatisiertes-testen/";
         String urlAfterClickOnFlag = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrl, urlAfterClickOnFlag);
     }

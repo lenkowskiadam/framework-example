@@ -19,7 +19,6 @@ public class TestCaseTwo extends AbstractTest {
         homePage.verifyEnglishVersion();
         homePage.checkAboutUsSubmenuIsDisplayed();
         homePage.goToEventSubmenu();
-
         EventsPage eventsPage = new EventsPage(driver);
         eventsPage.acceptCookieBanner();
         eventsPage.searchEvents(eventName);
