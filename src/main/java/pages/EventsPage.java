@@ -12,6 +12,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class EventsPage extends AbstractPage {
 
     private final int MAX_WAIT = 30;
+    private final String NO_RESULTS = "No Results Found";
 
     @FindBy(xpath = "//input[@id='tribe-events-events-bar-keyword']")
     WebElement searchForEventsField;
@@ -46,6 +47,9 @@ public class EventsPage extends AbstractPage {
     @FindBy(xpath = "//time[@class='tribe-events-calendar-list__event-datetime']")
     WebElement eventDate;
 
+    @FindBy(xpath = "//h1[@class='et_pb_module_header']//span")
+    WebElement noResultsFoundSentence;
+
     @Step("Search event")
     public void searchEvents(String eventsName) {
         WebDriverWait wait = new WebDriverWait(driver, MAX_WAIT);
@@ -77,6 +81,12 @@ public class EventsPage extends AbstractPage {
     @Step("Accept cookie banner")
     public void acceptCookieBanner() {
         acceptCookieBannerButton.click();
+    }
+
+    @Step("Check if there is sentence about no results found")
+    public void checkNoResultsFound(){
+        String noResultsFromPage = noResultsFoundSentence.getText();
+        Assert.assertEquals(noResultsFromPage, NO_RESULTS);
     }
 
     @Step("Go to 31.12 and select")
