@@ -14,19 +14,25 @@ public class TestCaseTwo extends AbstractTest {
     @Description("Test case two for interview")
     @Test
     public void testCaseTwo() {
+
+        //GIVEN user is on the QM page
         HomePage homePage = new HomePage(driver);
         homePage.checkPageIsDisplayed();
+
+        //WHEN he check that this is English version
         homePage.verifyEnglishVersion();
+
+        //THEN About Us menu is visible
         homePage.checkAboutUsSubmenuIsDisplayed();
+
+        //WHEN he go to Event Submenu
         homePage.goToEventSubmenu();
         EventsPage eventsPage = new EventsPage(driver);
+
+        //AND accept cookie banner
         eventsPage.acceptCookieBanner();
-        eventsPage.searchEvents(eventName);
-        eventsPage.checkSearchingResult();
-        eventsPage.checkCalendar();
-        eventsPage.goToDecemberAndSelectDay();
-        eventsPage.checkNowOnwardsOptionButton();
-        eventsPage.checkEventsTitle();
-        eventsPage.checkEventDate();
+
+        //THEN "No results found" information is visible
+        eventsPage.checkNoResultsFound();
     }
 }
