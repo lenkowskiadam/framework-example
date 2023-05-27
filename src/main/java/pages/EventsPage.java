@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class EventsPage extends AbstractPage {
 
@@ -45,6 +46,7 @@ public class EventsPage extends AbstractPage {
     @FindBy(xpath = "//time[@class='tribe-events-calendar-list__event-datetime']")
     WebElement eventDate;
 
+    @Step("Search event")
     public void searchEvents(String eventsName) {
         WebDriverWait wait = new WebDriverWait(driver, MAX_WAIT);
         wait.until(ExpectedConditions.elementToBeClickable(searchForEventsField));
@@ -52,6 +54,7 @@ public class EventsPage extends AbstractPage {
         findEventsButton.click();
     }
 
+    @Step("Check searching result")
     public void checkSearchingResult() {
         WebDriverWait wait = new WebDriverWait(driver, MAX_WAIT);
         wait.until(ExpectedConditions.visibilityOf(searchingResult));
@@ -64,16 +67,19 @@ public class EventsPage extends AbstractPage {
         Assert.assertEquals(buttonName, nowOnwardsOption.getText());
     }
 
+    @Step("Check if calendar is visible")
     public void checkCalendar() {
         datePickerButton.click();
         WebDriverWait wait = new WebDriverWait(driver, MAX_WAIT);
         wait.until(ExpectedConditions.visibilityOf(calendar));
     }
 
+    @Step("Accept cookie banner")
     public void acceptCookieBanner() {
         acceptCookieBannerButton.click();
     }
 
+    @Step("Go to 31.12 and select")
     public void goToDecemberAndSelectDay() {
         for (int i = 0; i < 8; i++) {
             previewDateButton.click();
@@ -81,6 +87,7 @@ public class EventsPage extends AbstractPage {
         thirtyFirstOfDecemberButton.click();
     }
 
+    @Step("Check now onwards option button")
     @SneakyThrows
     public void checkNowOnwardsOptionButton(){
         Thread.sleep(2000);
@@ -88,6 +95,7 @@ public class EventsPage extends AbstractPage {
         Assert.assertEquals(buttonText, nowOnwardsOption.getText());
     }
 
+    @Step("Check events title")
     public void checkEventsTitle(){
         String expectedTitle = "ICSTTP 2021";
         String title = eventsTitle.getAttribute("title");
@@ -98,6 +106,7 @@ public class EventsPage extends AbstractPage {
         Assert.assertEquals(expectedTitle, topic);
     }
 
+    @Step("Check event date")
     public void checkEventDate(){
         String expectedDate = "2022-01-04";
         String date = eventDate.getAttribute("datetime");

@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="quality_minds" />
+        <module name="framework-example" />
       </profile>
     </annotationProcessing>
   </component>
