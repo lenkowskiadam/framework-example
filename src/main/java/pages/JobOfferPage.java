@@ -15,7 +15,7 @@ public class JobOfferPage extends AbstractPage {
     @FindBy(xpath = "//h1[@class='et_pb_module_header']")
     WebElement pageTitle;
 
-    @FindBy(xpath = "//div[@id='awsm-grid-item-35043']//a")
+    @FindBy(xpath = "//div[@id='awsm-grid-item-44239']//a")
     WebElement firstJobOffer;
 
     @FindBy(xpath = "//button[@class='cmplz-btn cmplz-accept']")
@@ -42,13 +42,13 @@ public class JobOfferPage extends AbstractPage {
     @FindBy(xpath = "//form[@id='awsm-application-form']//div[contains(@class,'email-group')]//input")
     WebElement emailField;
 
-    @FindBy(xpath = "//div[@class='awsm-job-entry-content entry-content']//p[@class='has-medium-font-size'][1]")
+    @FindBy(xpath = "//div[@class='awsm-job-entry-content entry-content']//p[1]")
     WebElement jobDescriptionFirstParagraph;
 
     @FindBy(xpath = "//form[@id='awsm-application-form']//div[contains(@class,'textarea-group')]//textarea")
     WebElement textField;
 
-    @FindBy(xpath = "//input[@id='awsm-application-file']")
+    @FindBy(xpath = "//div[@class='custom-input']")
     WebElement attachFileButton;
 
     @FindBy(xpath = " //div[@class='custom-input']")
@@ -137,7 +137,7 @@ public class JobOfferPage extends AbstractPage {
 
     @Step("Attach file with DATEIEN HOCHLADEN button")
     public void attachFile() {
-        attachFileButton.sendKeys("/Users/adamlenkowski/Documents/Java_Selnium_Projects/quality_minds/src/main/resources/sample.pdf");
+        attachFileButton.sendKeys("/Users/adaml/Documents/framework-example/src/main/resources/sample.pdf");
         String pdfName = "sample.pdf";
         Assert.assertEquals(pdfName, attachFileAfterUpload.getText());
     }

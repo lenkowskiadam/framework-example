@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
 
-public class AutomatisiertesTestenPage extends AbstractPage {
+public class AutomationTesterPage extends AbstractPage {
 
     private final int MAX_WAIT = 30;
     private final String email = "mailto:testing@qualityminds.de";
@@ -27,6 +27,7 @@ public class AutomatisiertesTestenPage extends AbstractPage {
         String rest = parts[1];
 
         Assert.assertEquals(emailPart, email);
+
     }
 
     @Step("Go to the home page")
@@ -34,7 +35,7 @@ public class AutomatisiertesTestenPage extends AbstractPage {
         driver.navigate().to("http://www.qualityminds.com");
     }
 
-    public AutomatisiertesTestenPage(WebDriver driver) {
+    public AutomationTesterPage(WebDriver driver) {
         super(driver);
     }
 }

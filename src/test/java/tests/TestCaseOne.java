@@ -1,7 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.AutomatisiertesTestenPage;
+import pages.AutomationTesterPage;
 import pages.HomePage;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -24,7 +24,7 @@ public class TestCaseOne extends AbstractTest {
         //AND go to Automatisiertes Testen Page
         homePage.goToAutomatisiertesTestenPage();
 
-        AutomatisiertesTestenPage automatisiertesTestenPage = new AutomatisiertesTestenPage(driver);
+        AutomationTesterPage automatisiertesTestenPage = new AutomationTesterPage(driver);
 
         //AND check contact us button
         automatisiertesTestenPage.checkKontaktiereUnsButton();
