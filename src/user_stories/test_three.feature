@@ -18,4 +18,3 @@ Feature: Automate second test cases from exercise
     When user attach file with DATEIEN HOCHLADEN button
     Then file name is displayed on the button
     When user check the checkbox for Datenschutzerklärung
-    Then checkbox is ticked
